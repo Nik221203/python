@@ -1,17 +1,17 @@
 import requests
+import config
 from twilio.rest import Client
 
-account_sid = 'ACc265df6b95b0895c5b482c26ead576c2'
-auth_token = 'ecc8aef2db6d87525db42a06944368b6'
-client = Client(account_sid, auth_token)
+
+client = Client(config.account_sid, config.auth_token)
 
 open_weather_end = "https://api.openweathermap.org/data/2.5/weather"
 
-api_key = "5392e8d8236ee11526d7a2a3eb9a321a"
+
 parameter = {
     "lat": 28.25,
     "lon": 77.1667,
-    "appid": api_key
+    "appid": config.api_key
 }
 response = requests.get(url=open_weather_end, params=parameter)
 get = response.json()
